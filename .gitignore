@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+.Python
+env/
+.venv/
+.virenv/
+venv/
+ENV/
+*.env
+
+# Firebase credentials
+*.json
+
+# Flask session files
+instance/
+*.db
+*.sqlite3
+
+# Docker
+*.log
+*.pid
+*.tar
+*.sock
+*.lock
+*.bak
+docker-compose.override.yml
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# macOS/Linux/Windows OS files
+.DS_Store
+Thumbs.db
+desktop.ini
