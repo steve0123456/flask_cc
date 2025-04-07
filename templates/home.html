@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Expense Tracker</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <style>
+        .hero {
+            background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            transition: 0.3s;
+            box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15);
+        }
+    </style>
+</head>
+<body class="bg-light">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="{{ url_for('home') }}">
+                <i class="bi bi-currency-dollar me-2"></i>Expense Tracker
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('profile') }}"><i class="bi bi-person-circle me-1"></i>Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="bi bi-robot me-1"></i>Chatbot</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-light ms-2" href="{{ url_for('expense') }}">
+                            <i class="bi bi-wallet2 me-1"></i>Expense
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="{{ url_for('analytics') }}"><i class="bi bi-graph-up-arrow me-1"></i>Analytics</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-danger ms-2" href="{{ url_for('logout') }}">
+                            <i class="bi bi-box-arrow-right me-1"></i>Logout
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Welcome, {{ session['user']['email'] }}!</h1>
+            <p class="lead">Track your expenses, analyze your spending, and stay on top of your finances.</p>
+            <a href="{{ url_for('expense') }}" class="btn btn-warning btn-lg mt-3">
+                <i class="bi bi-plus-circle me-1"></i> Add Expense
+            </a>
+        </div>
+    </section>
+
+    <!-- Action Cards -->
+    <div class="container my-5">
+        <div class="row text-center g-4">
+            <div class="col-md-4">
+                <div class="card shadow-sm card-hover h-100">
+                    <div class="card-body">
+                        <i class="bi bi-person-circle fs-1 text-primary"></i>
+                        <h5 class="card-title mt-3">Profile</h5>
+                        <p class="card-text">Update your account details and manage your preferences.</p>
+                        <a href="{{ url_for('profile') }}" class="btn btn-outline-primary">Edit Profile</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card shadow-sm card-hover h-100">
+                    <div class="card-body">
+                        <i class="bi bi-wallet2 fs-1 text-success"></i>
+                        <h5 class="card-title mt-3">Manage Expenses</h5>
+                        <p class="card-text">Add, view, and organize all your expenses with ease.</p>
+                        <a href="{{ url_for('expense') }}" class="btn btn-outline-success">Go to Expenses</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card shadow-sm card-hover h-100">
+                    <div class="card-body">
+                        <i class="bi bi-graph-up-arrow fs-1 text-info"></i>
+                        <h5 class="card-title mt-3">Analytics</h5>
+                        <p class="card-text">Gain insights into your spending habits and financial health.</p>
+                        <a href="{{ url_for('analytics') }}" class="btn btn-outline-info">View Analytics</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light text-center py-4">
+        <p class="mb-0">&copy; 2025 Expense Tracker. All rights reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
